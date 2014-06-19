@@ -7,7 +7,7 @@ app.config(function($routeProvider) {
 		templateUrl: "views/list.html",
 	})
 	.when("/vendor/:id", {
-		templateUrl: "views/vendor.html"
+		templateUrl: "views/vendor.html",
 	})
 	.otherwise({
 		redirectTo: "/"
@@ -33,6 +33,22 @@ app.controller("ListController", function($http) {
 	this.loadList();
 });
 
-app.controller("VendorController", function($http) {
+app.controller("VendorController", function($routeParams, $http) {
+	var vendorId = $routeParams.id;
+	var that = this;
+	var vendor;
 	
+	this.getDetails = function() {
+		$http.get(urlBase+"/vendor/"+vendorId, {timeout: 1000}).success(function(data) {
+			that.vendor = data;
+			console.log(data);
+		}).error(function() {
+			vendorId = vendorId - 1;
+			var offlineData = JSON.parse(localStorage.getItem("vendorList"))[vendorId];
+			
+			that.vendor = offlineData;
+		});
+	};
+	
+	this.getDetails();
 });

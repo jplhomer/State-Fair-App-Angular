@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="col-lg-12">
+		<div class="sub-nav" ng-controller="ListController as list">
+			<h2 class="sub-nav-title" id="sn-just-for-kids">Search
+				<span class="glyphicon"></span>
+			</h2>
+			<p>{{list.vendors.size}}</p>
+			<ul ng-repeat="vendor in list.vendors">
+				<li><a href="#/vendor/{{vendor.id}}">{{vendor.name}}</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+{
+  "name": "front",
+  "version": "0.0.0",
+  "authors": [
+    "Nate Rauh <NRauh@users.noreply.github.com>"
+  ],
+  "description": "front end of state fair food app",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.18",
+    "bootstrap": "~3.1.1",
+    "angular-route": "~1.2.18"
+  }
+}

@@ -30,6 +30,25 @@ app.controller("ListController", function($http) {
 		});
 	};
 	
+	
+	function geoSorter(position) {
+		var lat = position.coords.latitude;
+		var long = position.coords.longitude;
+		console.log(lat, long);
+
+	}
+	
+	function geoErrHandle(err) {
+		console.log("Error");
+	}
+	
+	navigator.geolocation.getCurrentPosition(geoSorter, geoErrHandle, {
+		enableHighAccuracy: false,
+		// Could actually fail if gps is turned off fails
+	});
+	
+	
+
 	this.loadList();
 });
 
